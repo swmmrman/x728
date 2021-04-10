@@ -29,6 +29,8 @@ def get_voltage(bus):
 
 
 def call_shutdown():
+    current_time = time.asctime()
+    print(F"{current_time}: Voltage has reached crititcal levels shutting down");
     GPIO.output(PINS['OFF'], 1) # Set shutdown pin high.
     time.sleep(4) # 4 seconds to signal we are shutting down the X728
     GPIO.output(PINS['OFF'], 0) # Set back low to prevent forced off.
